@@ -1,28 +1,5 @@
-#[derive(Drop)]
-mod garden {
-
-    pub fn sayHiGarden () {
-        println!("Hi from Garden!");
-    }
-
-    fn callMeFromVegetables () {
-        println!("Hi I have been called from vegetables!");
-    }
-
-    #[derive(Drop)]
-    pub mod vegetables {
-
-        pub fn sayHiVegetables () {
-            println!("Hi from Vegetables!");
-            super::callMeFromVegetables();
-        }
-
-        #[derive(Drop)]
-        pub struct Asparagus {
-            pub size:u8
-        }
-    }
-}
+mod garden; 
+mod largeMouleTree;
 
 
 use backyard::garden::vegetables::Asparagus;
@@ -40,4 +17,6 @@ fn main() {
     garden::sayHiGarden();
     garden::vegetables::sayHiVegetables();
 
+    let largeModuleThreeLeaf = largeMouleTree::largeModuleTree2::largeModuleTree3::largeModuleTreeLeaf { color:'green' };
+    println!("My leaf color is {}", largeModuleThreeLeaf.color);
 }
